@@ -43,17 +43,16 @@ summary(lm.fit)
 #' brandblackberry variable is significant at 10% level indicating that it is the most popular among the given brands and hence, attracts a higher ctr.
 #' Intercept is also significant in the model indicating that there might be other important predictors, highly correlated with ctr, missing from the model. One of them could be the price of the products.
 
-#' Partitioning the data
-library(caret)
 
 #' Partitioning the data
 #' Creating training and test datasets with 70% in training set and 30% in test set
+library(caret)
+set.seed(101)
 inTrain <- createDataPartition(y= CTR_data$ctr, p= 0.7, list=F)   
 training <- CTR_data[inTrain,]              
 testing <- CTR_data[-inTrain,]
 
 #' Fitting a regression tree with ctr as the response variable and the rest of the variables as predictors (except website)
-set.seed(101)                                              
 modFit <- train(ctr~. -website, method="rpart", data=training)
 print(modFit$finalModel)
 
