@@ -1,5 +1,5 @@
 #' Reading the given dataset into R
-CTR_data <- read.csv("C:/R/debdutta/Dataset.csv", header=T, stringsAsFactors=F, strip.white=T)
+CTR_data <- read.csv(".../Dataset.csv", header=T, stringsAsFactors=F, strip.white=T)
 
 #' Data preprocessing
 #' Cleaning the variable names
